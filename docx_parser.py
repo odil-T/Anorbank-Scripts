@@ -7,7 +7,7 @@ import pandas as pd
 from docx import Document
 
 
-DOCUMENT_PATH = r"../script_io_files/Main+new.docx"
+DOCUMENT_PATH = r"../script_io_files/My+home+new.docx"
 OUTPUT_EXCEL_PATH = r"../script_io_files/docx_parser_output.xlsx"
 
 output_dict = {"Event name": [], "Description": []}
@@ -36,4 +36,5 @@ for outer_row in outer_table.rows:
 
 
 df = pd.DataFrame(output_dict)
-df.to_excel(OUTPUT_EXCEL_PATH)
+df.index = range(1, len(df)+1)
+df.to_excel(OUTPUT_EXCEL_PATH, index=True)
